@@ -10,3 +10,7 @@
   height: 100%;
   overflow: none;
 }
+
+.page {
+  padding: 20px;
+}

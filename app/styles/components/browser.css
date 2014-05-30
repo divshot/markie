@@ -16,7 +16,7 @@
 .browser .file {
   padding: 10px;
   cursor: pointer;
-  height: 90px;
+  height: 100px;
 }
 
 .browser .file.selected {

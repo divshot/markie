@@ -3,7 +3,7 @@
 }
 
 .editor .title-form input {
-  width: 100%;
+  width: 90%;
 }
 
 .editor .CodeMirror {
@@ -16,5 +16,6 @@
 .editor .preview-container {
   border-top: 5px solid #ccc;
   padding: 0;
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }

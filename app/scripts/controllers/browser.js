@@ -15,6 +15,14 @@ angular.module('markdownApp')
     if(!$scope.$$phase) $scope.$digest();
   });
 
+  $rootScope.$on('file:create', function() {
+    $scope.create();
+  });
+
+  $rootScope.$on('file:delete', function() {
+    $scope.delete();
+  });
+
   $scope.select = function(id) {
     $state.go('file', { id: id });
     $rootScope.selectedFile = id;

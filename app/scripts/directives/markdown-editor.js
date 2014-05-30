@@ -6,7 +6,7 @@ angular.module('markdownApp')
   return {
     restrict: "E",
     transclude: true,
-    template: "<div class='editor'><form class='pure-form title-form'><input class='title' type='text' ng-model='title' placeholder='Title' maxlength='255'></form><textarea class='codemirror'></textarea><div class='preview-container'><div class='preview'></div></div></div>",
+    template: "<div class='editor'><form class='pure-form title-form'><input class='title' type='text' ng-model='title' placeholder='Title' maxlength='255'><button ng-click='delete()' class='pure-button'><i class='fa fa-trash-o'></i></button></form><textarea class='codemirror'></textarea><div class='preview-container'><div class='preview'></div></div></div>",
     replace: true,
     link: function($scope, $elem, $attr) {
       var editorEl = angular.element(document.querySelector('.codemirror'));
@@ -52,6 +52,10 @@ angular.module('markdownApp')
           title: $scope.title,
           content: content
         });
+      };
+
+      $scope.delete = function() {
+        $rootScope.$broadcast('file:delete');
       };
 
       $scope.setOutput = function(val) {

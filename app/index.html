@@ -15,13 +15,17 @@
   <div class="app">
     <header class="navbar" ng-controller="NavCtrl">
       <nav class="pure-menu-horizontal">
-        <ul>
+        <ul class="pure-menu-left">
           <li>
             <form class="pure-form search-form" role="search">
               <input type="search" placeholder="Search…" ng-model="query" ng-keyup="search()" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" maxlength="50">
             </form>
           </li>
           <li><a href="/">Markie</a></li>
+        </ul>
+        <ul class="pure-menu-right">
+          <li><button ng-click="create()" class="pure-button"><i class="fa fa-plus"></i> New File</button></li>
+          <li><a href="http://docs.divshot.com" target="_blank">Divshot Docs</a></li>
         </ul>
       </nav>
     </header>
@@ -33,10 +37,6 @@
         <p>{{file.content | cut:false:72}}</p>
       </div>
       <p ng-if="!files.length" class="no-files">No files were found.</p>
-      <div class="actions">
-        <button ng-click="create()" class="pure-button">New File</button>
-        <button ng-click="delete()" class="pure-button button-error">Delete</button>
-      </div>
     </aside>
 
     <section class="main">

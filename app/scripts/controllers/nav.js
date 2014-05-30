@@ -12,4 +12,8 @@ angular.module('markdownApp')
     }
     $rootScope.$broadcast('file:search', results);
   };
+
+  $scope.create = function() {
+    $rootScope.$broadcast('file:create');
+  };
 });

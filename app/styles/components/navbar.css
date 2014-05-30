@@ -12,7 +12,16 @@
 
 .navbar ul {
   margin: 0;
-  padding: 0;
+  padding: 5px 0 0 0;
+}
+
+.navbar .pure-menu-left {
+  float: left;
+}
+
+.navbar .pure-menu-right {
+  float: right;
+  padding-right: 10px;
 }
 
 .pure-form.search-form input {
