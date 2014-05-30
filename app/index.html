@@ -12,21 +12,41 @@
   <script src="/__/env.js"></script>
 </head>
 <body ng-cloak>
-  <section class="main">
+  <div class="app">
+    <header class="navbar">
+      <nav class="pure-menu-horizontal">
+        <ul>
+          <li>
+            <form class="navbar-form" role="search">
+              <div class="input-group">
+                <input type="search" class="form-control" placeholder="Search…" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" maxlength="20">
+              </div>
+            </form>
+          </li>
+          <li><a href="/">Markie</a></li>
+        </ul>
+      </nav>
+    </header>
+
     <aside class="browser" ng-controller="BrowserCtrl">
       <div class="file" ng-click="select(file.id)" ng-class="{ selected: file.id == selectedFile }" ng-repeat="file in files">
         <span class="title">{{file.title}} <span class="modified" am-time-ago="file.modified"></span></span>
         <p>{{file.content | cut:false:120}}</p>
       </div>
-      <button ng-click="create()" class="pure-button">New File</button>
-      <button ng-click="delete()" class="pure-button button-error">Delete</button>
+      <div class="actions">
+        <button ng-click="create()" class="pure-button">New File</button>
+        <button ng-click="delete()" class="pure-button button-error">Delete</button>
+      </div>
     </aside>
-    <div class="content" ui-view></div>
-  </section>
 
-  <footer class="container">
+    <section class="main">
+      <div class="content" ui-view></div>
+    </section>
 
-  </footer>
+    <footer class="container">
+
+    </footer>
+  </div>
 
   <script src="/bower_components/angular/angular.js"></script>
   <script src="/bower_components/lodash/dist/lodash.underscore.js"></script>

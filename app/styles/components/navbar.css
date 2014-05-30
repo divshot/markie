@@ -1,0 +1,15 @@
+.navbar {
+  position: absolute;
+  z-index: 4;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: navbarHeight;
+  margin: 0;
+  border: 0;
+}
+
+.navbar ul {
+  margin: 0;
+  padding: 0;
+}

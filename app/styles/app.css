@@ -1,3 +1,8 @@
 @import url('global/base.css');
 
+@import url('components/app.css');
+@import url('components/browser.css');
+@import url('components/content.css');
+@import url('components/editor.css');
+@import url('components/navbar.css');
 @import url('components/preview.css');

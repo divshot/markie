@@ -12,7 +12,7 @@ angular.module('markdownApp')
 
   $scope.select = function(id) {
     $state.go('file', { id: id });
-    $scope.selectedFile = id;
+    $rootScope.selectedFile = id;
   };
 
   $scope.create = function() {
@@ -25,7 +25,7 @@ angular.module('markdownApp')
   };
 
   $scope.delete = function() {
-    var id = $stateParams.id || $scope.selectedFile;
+    var id = $stateParams.id || $rootScope.selectedFile;
     var file = files.get(id);
 
     if(file) {

@@ -1,0 +1,11 @@
+.app {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  padding-top: navbarHeight;
+  font: normal 1em/1.7 baseFont;
+  color: textColor;
+  word-wrap: break-word;
+  overflow: hidden;
+  box-sizing: border-box;
+}
