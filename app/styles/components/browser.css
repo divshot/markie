@@ -1,13 +1,14 @@
 .browser {
   position: absolute;
   z-index: 2;
-  top: 40px;
+  top: 50px;
   bottom: 0;
   left: 0;
   width: 288px;
   overflow-x: hidden;
   overflow-y: scroll;
-  background: #f3f3f3;
+  color: #ddd;
+  background: #28292B;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
   user-select: none;
@@ -20,11 +21,12 @@
 }
 
 .browser .file.selected {
-  background: #ccc;
+  background: #000;
 }
 
 .browser .file .title {
   display: block;
+  color: #fff;
   font-size: 14px;
   font-weight: bold;
 }
@@ -33,6 +35,7 @@
   display: block;
   font-size: 10px;
   font-weight: normal;
+  color: #999;
 }
 
 .browser .file p {
