@@ -4,12 +4,19 @@
   top: 0;
   left: 0;
   right: 0;
-  height: navbarHeight;
+  height: 40px;
   margin: 0;
   border: 0;
+  background: #ccc;
 }
 
 .navbar ul {
   margin: 0;
   padding: 0;
+}
+
+.pure-form.search-form input {
+  width: 255px;
+  font-size: 12px;
+  padding: 6px 10px;
 }

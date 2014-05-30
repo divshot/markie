@@ -10,6 +10,11 @@ angular.module('markdownApp')
     if(!$scope.$$phase) $scope.$digest();
   });
 
+  $rootScope.$on('file:search', function(e, files) {
+    $scope.files = files;
+    if(!$scope.$$phase) $scope.$digest();
+  });
+
   $scope.select = function(id) {
     $state.go('file', { id: id });
     $rootScope.selectedFile = id;
@@ -35,14 +40,5 @@ angular.module('markdownApp')
         $scope.select($scope.files[0].id);
       }
     }
-  };
-
-  $scope.search = function() {
-    if($scope.query) {
-      $scope.files = files.search($scope.query);
-    } else {
-      $scope.files = files.list();
-    }
-    if(!$scope.$$phase) $scope.$digest();
   };
 });

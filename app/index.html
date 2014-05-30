@@ -14,22 +14,18 @@
 <body ng-cloak>
   <div class="app">
     <header class="navbar" ng-controller="NavCtrl">
-      <nav class="pure-menu-horizontal">
-        <ul>
-          <li><a href="/">Markie</a></li>
-        </ul>
-      </nav>
+      <form class="pure-form search-form" role="search">
+        <input type="search" placeholder="Search…" ng-model="query" ng-keyup="search()" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" maxlength="50">
+      </form>
     </header>
 
     <aside class="browser" ng-controller="BrowserCtrl">
-      <form class="pure-form" role="search">
-        <input type="search" placeholder="Search…" ng-model="query" ng-keyup="search()" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" maxlength="50">
-      </form>
       <div class="file" ng-click="select(file.id)" ng-class="{ selected: file.id == selectedFile }" ng-repeat="file in files">
         <span class="title">{{file.title | cut:false:30}}</span>
         <span class="modified" am-time-ago="file.modified"></span>
         <p>{{file.content | cut:false:80}}</p>
       </div>
+      <p ng-if="!files.length" class="no-files">No files were found.</p>
       <div class="actions">
         <button ng-click="create()" class="pure-button">New File</button>
         <button ng-click="delete()" class="pure-button button-error">Delete</button>
