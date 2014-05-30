@@ -16,6 +16,7 @@ angular.module('markdownApp')
         mode: 'markdown',
         matchBrackets: true,
         lineWrapping: true,
+        placeholder: 'Start typing here…',
         theme: 'default'
       });
 
