@@ -22,6 +22,7 @@ angular.module('markdownApp')
       if($attr.file) {
         var file = files.get($attr.file);
         if(file) {
+          $scope.id = $attr.file;
           $scope.title = file.title;
           $scope.editor.setValue(file.content);
         }
@@ -37,15 +38,16 @@ angular.module('markdownApp')
       $scope.editor = {}
 
       $scope.update = function() {
+        var id = $scope.id || Date.now();
         var content = $scope.editor.getValue();
         $scope.setOutput(content);
 
-        files.save('test', {
+        files.save(id, {
           title: $scope.title,
           content: content
         });
 
-        $rootScope.$broadcast('fileUpdate');
+        $rootScope.$broadcast('file:update');
       };
 
       $scope.setOutput = function(val) {
