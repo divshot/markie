@@ -13,7 +13,7 @@
     "angular-sanitize": "~1.2.0",
     "angular-ui-router": "~0.2.10",
     "angular-moment": "~0.6.2",
-    "bootbox": "~4.1.0",
+    "angular-local-storage": "~0.0.5",
     "codemirror": "~4.2.0",
     "marked": "~0.3.2",
     "highlightjs": "~8.0.0"

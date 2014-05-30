@@ -4,5 +4,6 @@ angular.module('markdownApp', [
   'ngAnimate',
   'ngCookies',
   'ngSanitize',
-  'ui.router'
+  'ui.router',
+  'LocalStorageModule'
 ]);

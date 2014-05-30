@@ -2,14 +2,16 @@
 
 angular.module('markdownApp')
 
-.directive('markdownEditor', function($document) {
+.directive('markdownEditor', function($document, files) {
   return {
     restrict: "E",
     transclude: true,
-    template: "<textarea class='codemirror'></textarea>",
+    template: "<div><input class='title' type='text' ng-model='title' placeholder='Title'><textarea class='codemirror'></textarea></div>",
     replace: true,
     link: function($scope, $elem, $attr) {
-      $scope.editor = CodeMirror.fromTextArea($elem[0], {
+      var editorEl = angular.element(document.querySelector('.codemirror'))[0];
+
+      $scope.editor = CodeMirror.fromTextArea(editorEl, {
         mode: 'markdown',
         lineNumbers: true,
         matchBrackets: true,
@@ -17,33 +19,38 @@ angular.module('markdownApp')
         theme: 'default'
       });
 
-      $scope.editor.on('change', $scope.update);
-
-      $document.on('keydown', function(e) {
-        if(e.keyCode == 83 && (e.ctrlKey || e.metaKey)) {
-          e.preventDefault();
-          $scope.save();
-          return false;
+      if($attr.file) {
+        var file = files.get($attr.file);
+        if(file) {
+          $scope.title = file.title;
+          $scope.editor.setValue(file.content);
         }
+      }
+
+      $scope.$watch('title', function(val) {
+        if(val) $scope.update();
       });
+
+      $scope.editor.on('change', $scope.update);
     },
-    controller: function($scope, $http) {
+    controller: function($rootScope, $scope, $http) {
       $scope.editor = {}
 
-      $scope.update = function(e) {
-        var val = e.getValue();
-        $scope.setOutput(val);
+      $scope.update = function() {
+        var content = $scope.editor.getValue();
+        $scope.setOutput(content);
+
+        files.save('test', {
+          title: $scope.title,
+          content: content
+        });
+
+        $rootScope.$broadcast('fileUpdate');
       };
 
       $scope.setOutput = function(val) {
         var preview = angular.element(document.querySelector('.preview'));
         preview.html(marked(val));
-      };
-
-      $scope.save = function() {
-        var code = $scope.editor.getValue();
-        console.log('Saving...');
-        console.log(code);
       };
     }
   };

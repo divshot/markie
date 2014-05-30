@@ -9,6 +9,10 @@ angular.module('markdownApp')
     url: '/',
     templateUrl: '/views/main.html',
     controller: 'MainCtrl'
+  }).state('file', {
+    url: '/:id',
+    templateUrl: '/views/main.html',
+    controller: 'MainCtrl'
   });
 
   $urlRouterProvider.otherwise('/');
