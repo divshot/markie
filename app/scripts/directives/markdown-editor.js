@@ -2,16 +2,17 @@
 
 angular.module('markdownApp')
 
-.directive('markdownEditor', function($document, files) {
+.directive('markdownEditor', function($window, $document, files) {
   return {
     restrict: "E",
     transclude: true,
-    template: "<div class='editor'><form class='pure-form title-form'><input class='title' type='text' ng-model='title' placeholder='Title' maxlength='255'></form><textarea class='codemirror'></textarea><div class='preview'></div></div>",
+    template: "<div class='editor'><form class='pure-form title-form'><input class='title' type='text' ng-model='title' placeholder='Title' maxlength='255'></form><textarea class='codemirror'></textarea><div class='preview-container'><div class='preview'></div></div></div>",
     replace: true,
     link: function($scope, $elem, $attr) {
-      var editorEl = angular.element(document.querySelector('.codemirror'))[0];
+      var editorEl = angular.element(document.querySelector('.codemirror'));
+      var previewEl = angular.element(document.querySelector('.preview'));
 
-      $scope.editor = CodeMirror.fromTextArea(editorEl, {
+      $scope.editor = CodeMirror.fromTextArea(editorEl[0], {
         mode: 'markdown',
         lineNumbers: true,
         matchBrackets: true,
@@ -33,6 +34,11 @@ angular.module('markdownApp')
       });
 
       $scope.editor.on('change', $scope.update);
+      $scope.resizePreview();
+
+      angular.element($window).bind('resize', function() {
+        $scope.resizePreview();
+      });
     },
     controller: function($rootScope, $scope, $http) {
       $scope.editor = {}
@@ -51,6 +57,14 @@ angular.module('markdownApp')
       $scope.setOutput = function(val) {
         var preview = angular.element(document.querySelector('.preview'));
         preview.html(marked(val));
+      };
+
+      $scope.resizePreview = function() {
+        _.defer(function() {
+          var previewContainer = angular.element(document.querySelector('.preview-container'));
+          var previewHeight = document.querySelector('.main').offsetHeight - 440;
+          previewContainer.css('height', previewHeight + 'px');
+        });
       };
     }
   };
