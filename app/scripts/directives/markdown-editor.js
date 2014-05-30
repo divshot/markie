@@ -6,7 +6,7 @@ angular.module('markdownApp')
   return {
     restrict: "E",
     transclude: true,
-    template: "<div class='editor'><input class='title' type='text' ng-model='title' placeholder='Title' maxlength='255'><textarea class='codemirror'></textarea><div class='preview'></div></div>",
+    template: "<div class='editor'><form class='pure-form'><input class='title' type='text' ng-model='title' placeholder='Title' maxlength='255'></form><textarea class='codemirror'></textarea><div class='preview'></div></div>",
     replace: true,
     link: function($scope, $elem, $attr) {
       var editorEl = angular.element(document.querySelector('.codemirror'))[0];
@@ -23,7 +23,7 @@ angular.module('markdownApp')
         var file = files.get($attr.file);
         if(file) {
           $scope.id = $attr.file;
-          $scope.title = file.title;
+          $scope.title = file.title == 'Untitled' ? '' : file.title;
           $scope.editor.setValue(file.content);
         }
       }
