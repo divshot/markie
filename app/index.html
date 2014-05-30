@@ -14,11 +14,12 @@
 <body ng-cloak>
   <section class="main">
     <aside class="browser" ng-controller="BrowserCtrl">
-      <div class="file" ng-click="select(id)" ng-repeat="(id, file) in files">
+      <div class="file" ng-click="select(id)" ng-class="{ selected: id == selectedFile }" ng-repeat="(id, file) in files">
         <span class="title">{{file.title}}</span>
         <p>{{file.content | cut:false:120}}</p>
       </div>
       <button ng-click="create()" class="pure-button">New File</button>
+      <button ng-click="delete()" class="pure-button button-error">Delete</button>
     </aside>
     <div class="content" ui-view></div>
   </section>

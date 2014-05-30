@@ -46,8 +46,6 @@ angular.module('markdownApp')
           title: $scope.title,
           content: content
         });
-
-        $rootScope.$broadcast('file:update');
       };
 
       $scope.setOutput = function(val) {

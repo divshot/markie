@@ -2,7 +2,7 @@
 
 angular.module('markdownApp')
 
-.controller('BrowserCtrl', function($rootScope, $scope, $state, files) {
+.controller('BrowserCtrl', function($rootScope, $scope, $state, $stateParams, files) {
   $scope.files = files.list();
 
   $rootScope.$on('file:update', function() {
@@ -12,6 +12,7 @@ angular.module('markdownApp')
 
   $scope.select = function(id) {
     $state.go('file', { id: id });
+    $scope.selectedFile = id;
   };
 
   $scope.create = function() {
@@ -20,7 +21,18 @@ angular.module('markdownApp')
       title: 'Untitled',
       content: ''
     });
-    $state.go('file', { id: id });
-    $rootScope.$broadcast('file:update');
+    $scope.select(id);
+  };
+
+  $scope.delete = function() {
+    var id = $stateParams.id || $scope.selectedFile;
+    var file = files.get(id);
+
+    if(file) {
+      var confirmDelete = confirm('Are you sure you want to delete ' + file.title + '?');
+      if(confirmDelete) {
+        files.delete(id);
+      }
+    }
   };
 });

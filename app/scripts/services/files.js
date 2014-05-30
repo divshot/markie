@@ -2,7 +2,7 @@
 
 angular.module('markdownApp')
 
-.service('files', function($filter, localStorageService) {
+.service('files', function($rootScope, $filter, localStorageService) {
   return {
     list: function() {
       return localStorageService.get('files');
@@ -20,11 +20,13 @@ angular.module('markdownApp')
       files[id].content = data.content;
 
       localStorageService.set('files', JSON.stringify(files));
+      $rootScope.$broadcast('file:update');
     },
     delete: function(id) {
       var files = localStorageService.get('files');
       delete files[id];
       localStorageService.set('files', JSON.stringify(files));
+      $rootScope.$broadcast('file:update');
     }
   };
 });
