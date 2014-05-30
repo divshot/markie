@@ -5,5 +5,6 @@ angular.module('markdownApp', [
   'ngCookies',
   'ngSanitize',
   'ui.router',
+  'angularMoment',
   'LocalStorageModule'
 ]);
