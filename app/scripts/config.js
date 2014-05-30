@@ -18,7 +18,7 @@ angular.module('markdownApp')
   $urlRouterProvider.otherwise('/');
 })
 
-.run(function($location, $rootScope, $state) {
+.run(function($rootScope) {
   $rootScope.__env = __env;
   $rootScope.isMobileDevice = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase());
 });

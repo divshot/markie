@@ -18,7 +18,7 @@ angular.module('markdownApp')
       var id = id || $filter('filename')(data.title);
       var files = localStorageService.get('files') || {};
 
-      if(files[id].title === data.title && files[id].content === data.content)
+      if(files[id] && files[id].title === data.title && files[id].content === data.content)
         return false;
 
       if(!files[id]) files[id] = {}

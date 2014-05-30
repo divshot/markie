@@ -6,7 +6,7 @@ angular.module('markdownApp')
   return {
     restrict: "E",
     transclude: true,
-    template: "<div><input class='title' type='text' ng-model='title' placeholder='Title'><textarea class='codemirror'></textarea><div class='preview'></div></div>",
+    template: "<div class='editor'><input class='title' type='text' ng-model='title' placeholder='Title'><textarea class='codemirror'></textarea><div class='preview'></div></div>",
     replace: true,
     link: function($scope, $elem, $attr) {
       var editorEl = angular.element(document.querySelector('.codemirror'))[0];
