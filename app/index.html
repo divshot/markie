@@ -16,7 +16,7 @@
     <aside class="browser" ng-controller="BrowserCtrl">
       <div class="file" ng-click="select(id)" ng-repeat="(id, file) in files">
         <span class="title">{{file.title}}</span>
-        <p ng-bind="file.content">{{file.content}}</p>
+        <p>{{file.content}}</p>
       </div>
     </aside>
     <div class="content" ui-view></div>

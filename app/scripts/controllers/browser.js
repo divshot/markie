@@ -7,6 +7,7 @@ angular.module('markdownApp')
 
   $rootScope.$on('fileUpdate', function() {
     $scope.files = files.list();
+    if(!$scope.$$phase) $scope.$digest();
   });
 
   $scope.select = function(id) {
