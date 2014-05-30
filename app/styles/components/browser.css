@@ -14,8 +14,9 @@
 }
 
 .browser .file {
+  padding: 10px;
   cursor: pointer;
-  height: 80px;
+  height: 90px;
 }
 
 .browser .file.selected {
@@ -23,13 +24,18 @@
 }
 
 .browser .file .title {
-
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
 }
 
-.browser .file .title .modified {
-
+.browser .file .modified {
+  display: block;
+  font-size: 10px;
+  font-weight: normal;
 }
 
 .browser .file p {
-
+  font-size: 12px;
+  margin: 10px 0 0 0;
 }

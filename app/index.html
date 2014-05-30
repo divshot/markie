@@ -30,8 +30,9 @@
 
     <aside class="browser" ng-controller="BrowserCtrl">
       <div class="file" ng-click="select(file.id)" ng-class="{ selected: file.id == selectedFile }" ng-repeat="file in files">
-        <span class="title">{{file.title}} <span class="modified" am-time-ago="file.modified"></span></span>
-        <p>{{file.content | cut:false:120}}</p>
+        <span class="title">{{file.title | cut:false:30}}</span>
+        <span class="modified" am-time-ago="file.modified"></span>
+        <p>{{file.content | cut:false:80}}</p>
       </div>
       <div class="actions">
         <button ng-click="create()" class="pure-button">New File</button>
