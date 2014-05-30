@@ -32,6 +32,7 @@ angular.module('markdownApp')
       var confirmDelete = confirm('Are you sure you want to delete ' + file.title + '?');
       if(confirmDelete) {
         files.delete(id);
+        $scope.select($scope.files[0].id);
       }
     }
   };
