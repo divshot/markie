@@ -36,4 +36,13 @@ angular.module('markdownApp')
       }
     }
   };
+
+  $scope.search = function() {
+    if($scope.query) {
+      $scope.files = files.search($scope.query);
+    } else {
+      $scope.files = files.list();
+    }
+    if(!$scope.$$phase) $scope.$digest();
+  };
 });

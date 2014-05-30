@@ -11,6 +11,14 @@ angular.module('markdownApp')
       });
       return files;
     },
+    search: function(query) {
+      var files = this.list();
+      query = query.toLowerCase();
+      files = _.filter(files, function(file) {
+        return file.title.toLowerCase().indexOf(query) !== -1 || file.content.toLowerCase().indexOf(query) !== -1;
+      });
+      return files;
+    },
     get: function(id) {
       return localStorageService.get('files')[id];
     },

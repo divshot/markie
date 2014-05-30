@@ -13,22 +13,18 @@
 </head>
 <body ng-cloak>
   <div class="app">
-    <header class="navbar">
+    <header class="navbar" ng-controller="NavCtrl">
       <nav class="pure-menu-horizontal">
         <ul>
-          <li>
-            <form class="navbar-form" role="search">
-              <div class="input-group">
-                <input type="search" class="form-control" placeholder="Search…" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" maxlength="20">
-              </div>
-            </form>
-          </li>
           <li><a href="/">Markie</a></li>
         </ul>
       </nav>
     </header>
 
     <aside class="browser" ng-controller="BrowserCtrl">
+      <form class="pure-form" role="search">
+        <input type="search" placeholder="Search…" ng-model="query" ng-keyup="search()" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" maxlength="50">
+      </form>
       <div class="file" ng-click="select(file.id)" ng-class="{ selected: file.id == selectedFile }" ng-repeat="file in files">
         <span class="title">{{file.title | cut:false:30}}</span>
         <span class="modified" am-time-ago="file.modified"></span>
@@ -68,6 +64,7 @@
   <script src="/scripts/config.js"></script>
   <script src="/scripts/controllers/main.js"></script>
   <script src="/scripts/controllers/browser.js"></script>
+  <script src="/scripts/controllers/nav.js"></script>
   <script src="/scripts/directives/markdown-editor.js"></script>
   <script src="/scripts/services/files.js"></script>
   <script src="/scripts/filters/cut.js"></script>
