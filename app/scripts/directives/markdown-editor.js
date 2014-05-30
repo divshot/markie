@@ -6,7 +6,7 @@ angular.module('markdownApp')
   return {
     restrict: "E",
     transclude: true,
-    template: "<div class='editor'><form class='pure-form title-form'><input class='title' type='text' ng-model='title' placeholder='Title' maxlength='255'><button ng-click='delete()' class='pure-button'><i class='fa fa-trash-o'></i></button></form><textarea class='codemirror'></textarea><div class='preview-container'><div class='preview'></div></div></div>",
+    template: "<div class='editor'><div class='title-pane'><form class='pure-form title-form'><input class='title' type='text' ng-model='title' placeholder='Title' maxlength='255'><button ng-click='delete()' class='pure-button'><i class='fa fa-trash-o'></i></button></form></div><div class='editor-pane'><textarea class='codemirror'></textarea></div><div class='preview-pane'><div class='preview'></div></div></div>",
     replace: true,
     link: function($scope, $elem, $attr) {
       var editorEl = angular.element(document.querySelector('.codemirror'));
@@ -14,7 +14,6 @@ angular.module('markdownApp')
 
       $scope.editor = CodeMirror.fromTextArea(editorEl[0], {
         mode: 'markdown',
-        lineNumbers: true,
         matchBrackets: true,
         lineWrapping: true,
         theme: 'default'
@@ -34,11 +33,6 @@ angular.module('markdownApp')
       });
 
       $scope.editor.on('change', $scope.update);
-      $scope.resizePreview();
-
-      angular.element($window).bind('resize', function() {
-        $scope.resizePreview();
-      });
     },
     controller: function($rootScope, $scope, $http) {
       $scope.editor = {}
@@ -61,14 +55,6 @@ angular.module('markdownApp')
       $scope.setOutput = function(val) {
         var preview = angular.element(document.querySelector('.preview'));
         preview.html(marked(val));
-      };
-
-      $scope.resizePreview = function() {
-        _.defer(function() {
-          var previewContainer = angular.element(document.querySelector('.preview-container'));
-          var previewHeight = document.querySelector('.main').offsetHeight - 440;
-          previewContainer.css('height', previewHeight + 'px');
-        });
       };
     }
   };

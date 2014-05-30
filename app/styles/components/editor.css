@@ -1,5 +1,18 @@
 .editor {
+  height: 100%;
+}
 
+.title-pane {
+  width: 100%;
+  height: 40px;
+  padding: 20px;
+  background: #fafafa;
+}
+
+.editor-pane, .preview-pane {
+  float: left;
+  width: 50%;
+  height: calc(100% - 80px);
 }
 
 .editor .title-form input {
@@ -10,12 +23,9 @@
   font-family: 'Source Code Pro', 'Inconsolata-g', Consolas, Menlo, monospace;
   font-size: 14px;
   line-height: 20px;
-  height: 400px;
+  height: 100%;
 }
 
-.editor .preview-container {
-  border-top: 5px solid #ccc;
-  padding: 0;
-  overflow-x: hidden;
-  overflow-y: scroll;
+.editor .preview-pane {
+  overflow: auto;
 }
