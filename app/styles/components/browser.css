@@ -9,6 +9,7 @@
   overflow-y: scroll;
   color: #ddd;
   background: #28292B;
+  box-shadow: inset -3px 2px 4px rgba(0,0,0,.8);
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
   user-select: none;

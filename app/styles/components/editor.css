@@ -40,6 +40,13 @@
 .editor-pane, .preview-pane {
   float: left;
   width: 50%;
+}
+
+.editor-pane {
+  height: calc(100% - 120px);
+}
+
+.preview-pane {
   height: calc(100% - 80px);
 }
 
