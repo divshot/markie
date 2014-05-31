@@ -20,7 +20,10 @@ angular.module('markdownApp')
       return files;
     },
     get: function(id) {
-      return localStorageService.get('files')[id];
+      if(localStorageService.get('files'))
+        return localStorageService.get('files')[id];
+      else
+        return {};
     },
     save: function(id, data) {
       var id = id || $filter('filename')(data.title);
