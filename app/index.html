@@ -2,7 +2,7 @@
 <html lang="en" ng-app="markdownApp">
 <head>
   <meta charset="utf-8">
-  <title>Markie, from Divshot</title>
+  <title>Markie</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
   <link rel="stylesheet" href="//yui.yahooapis.com/pure/0.5.0/pure-min.css">
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"/>
@@ -25,6 +25,7 @@
         </ul>
         <ul class="pure-menu-right">
           <li><button ng-click="create()" class="pure-button"><i class="fa fa-plus"></i>&nbsp; New Document</button></li>
+          <li><a href="/" class="logo">Markie</a></li>
         </ul>
       </nav>
     </header>
@@ -41,10 +42,6 @@
     <section class="main">
       <div class="content" ui-view></div>
     </section>
-
-    <footer class="container">
-
-    </footer>
   </div>
 
   <script src="/bower_components/angular/angular.js"></script>

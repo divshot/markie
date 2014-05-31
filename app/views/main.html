@@ -1,8 +1,31 @@
 <div class="page" ng-if="!selectedFile">
-  <h1>Markie, from Divshot</h1>
-  <p>To get started, click the "New File" button.</p>
-  <p>Nulla condimentum nulla est, vel elementum nunc rhoncus id. Donec enim nunc, blandit at orci mattis, lobortis hendrerit nunc. Sed a tristique orci, eu convallis sem. Pellentesque lacinia in ante a semper. Phasellus ac felis et augue convallis viverra sed vel eros. Nam porttitor id ligula vel placerat. Nullam sed lorem felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec sapien justo, viverra id libero at, pretium posuere urna.</p>
-  <p>Duis et libero vestibulum, pulvinar purus vel, ornare urna. Quisque risus risus, feugiat vitae massa eu, imperdiet luctus est. Cras ut fermentum tortor. Morbi ante lacus, bibendum nec libero a, posuere fringilla nibh. Quisque est augue, placerat a tortor id, mattis mollis eros. Phasellus et felis lorem. Etiam ut nulla quis massa eleifend rutrum.</p>
+  <div class="page-inner">
+    <h1>Hello, World</h1>
+    <p>Welcome to Divshot! Play around with this sample app and get an idea of the awesome things you can host using our platform.</p>
+
+    <h2>Check It Out</h2>
+    
+    <h3>HTML5 pushState</h3>
+    <p>This app takes advantage of HTML5 pushState for clean, user-friendly URLs. No <code>.html</code> extension required. We set <code>clean_urls</code> to true in <code>divshot.json</code> and <code>$locationProvider.html5Mode(true)</code> in <code>app/scripts/config.js</code>.</p>
+
+    <h3>Environment Variables</h3>
+    <p>A sample <code>.env.json</code> file has been provided for testing. You can environment-based variables in your static web app for things like API keys and absolute URLs. By default, the <code>environment</code> key is set to {{__env.environment}}.</p>
+
+    <h2>Local Development</h2>
+    <p>To run Markie locally, go to your app directory and type <code>divshot server</code> in the terminal. Feel free to make changes and deploy them to Divshot whenever you'd like.</p>
+    
+    <h2>Deployment</h2>
+    <p>Divshot comes with 3 staging environments for your convenience: Development, staging, and production. Our production environment is hosted on a blazing fast CDN. To push to staging, type this in the terminal:</p>
+    <p><pre><code>divshot push staging</code></pre></p>
+    <p>You can also promote apps to different environments. Do the following:</p>
+    <p><pre><code>divshot promote staging production</code></pre></p>
+    <p>Your static web app is now live. Congratulations!</p>
+
+    <h2>Next Steps</h2>
+    <p>Have a feel for how Divshot works? Learn more by exploring the <a href="http://docs.divshot.com" target="_blank">documentation</a> and <a href="http://staticapps.org" target="_blank">field guide</a> to start deploying your own apps! If you have any questions don't hesitate to <a href="http://www.divshot.com/contact" target="_blank">email us.</a></p>
+
+    <span class="copyright">&copy; Divshot, Inc.</span>
+  </div>
 </div>
 
 <markdown-editor file="{{selectedFile}}" ng-if="selectedFile"></markdown-editor>

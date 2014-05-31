@@ -8,9 +8,63 @@
 .content {
   position: relative;
   height: 100%;
-  overflow: none;
+  overflow: hidden;
 }
 
 .page {
-  padding: 20px;
+  height: 100%;
+  padding: 0 20px;
+  overflow: auto;
+}
+
+.page-inner {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.page h1 {
+  color: #000;
+  padding: 0 0 6px;
+  border-bottom: 1px solid #eee;
+}
+
+.page h3 {
+  color: #777;
+  font-weight: normal;
+}
+
+.page a {
+  color: #4183c4;
+}
+
+.page p {
+  font-size: 14px;
+  color: #444;
+}
+
+.page pre {
+  font-size: 14px;
+  background: #f6f8fe;
+  padding: 6px 4px;
+  border-radius: 4px;
+}
+
+.page code {
+  color: #278601;
+  background: #f1f6ef;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.page pre code {
+  color: #59617c;
+  background: none;
+}
+
+.page .copyright {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  text-align: center;
+  margin: 40px 0;
 }
